@@ -1,6 +1,6 @@
-^C:\USERS\USER\SOURCE\REPOS\OTUS-CPP-BASICS-LESSON3\BUILD\CMAKEFILES\F0AADC9F240956A7B1F9F0BA880F14AA\GENERATE.STAMP.RULE
+^C:\USERS\AALEKSANDROV\DEV\OTUS-CPP-BASICS-LESSON3\BUILD\CMAKEFILES\90AEDB72A6910CC574639E37E72D2394\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/User/source/repos/otus-cpp-basics-lesson3 -BC:/Users/User/source/repos/otus-cpp-basics-lesson3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/User/source/repos/otus-cpp-basics-lesson3/build/01.guess_the_number.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/AAleksandrov/dev/otus-cpp-basics-lesson3 -BC:/Users/AAleksandrov/dev/otus-cpp-basics-lesson3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/AAleksandrov/dev/otus-cpp-basics-lesson3/build/01.guess_the_number.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
