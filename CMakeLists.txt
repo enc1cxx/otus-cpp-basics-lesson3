@@ -4,7 +4,8 @@ project(01.guess_the_number
 )
 
 add_executable(guess_the_number
- 
+    file_read_write.h
+    file_read_write.cpp
     main.cpp
 )
 

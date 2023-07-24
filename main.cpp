@@ -1,15 +1,15 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <random>
 
-using namespace std;
-
+#include "file_read_write.h"
 
 
 int current_value = 0;
 int max_value = 100;
-string username = "";
-int attempt_counter = 0;
+std::string user_name = "";
+int attempts_count = 0;
 bool arg_level = false;
 bool arg_max = false;
 
@@ -17,14 +17,15 @@ bool arg_max = false;
 int main(int argc, char *argv[]) {
 
     for (int i = 0; i < argc; ++i) {
-        if(string(argv[i]) == "-table") {
+        if(std::string(argv[i]) == "-table") {
+            ReadFile();
             return 0;
         }
-        if(string(argv[i]) == "-max") {
+        if(std::string(argv[i]) == "-max") {
             arg_max = true;
             max_value = atoi(argv[i + 1]);
         }
-        if(string(argv[i]) == "-level") {
+        if(std::string(argv[i]) == "-level") {
             arg_level = true;
             if(atoi(argv[i + 1]) == 1) {
                 max_value = 10;
@@ -33,40 +34,52 @@ int main(int argc, char *argv[]) {
             }else if(atoi(argv[i + 1]) == 3){
                 max_value = 100;
             }else{
-                cout << "Incorrect parameter of -level" << endl;
+                std::cout << "Incorrect parameter of -level" << std::endl;
                 return -1;
             }
         }
         if(arg_level && arg_max){
-            cout << "Error: simultaneous use of -level and -max is not allowed" << endl;
+            std::cout << "Error: simultaneous use of -level and -max is not allowed" << std::endl;
             return -1;
         }
 	}
 
+    std::mt19937_64 gen(std::time(nullptr));
+    std::uniform_int_distribution<int> distrib(0, max_value - 1);
 
-    srand(time(NULL));
-    const int random_value = rand() % max_value;
-    cout << "Hi! Enter your name, please:"s << endl;
-    cin >> username;
+    const int random_value = distrib(gen);
 
-    cout << "Enter your guess:"s << endl;
+
+    //std::cout << "max_value = " << max_value << "random_value = " << random_value << std::endl;
+
+
+
+    std::cout << "Hi! Enter your name, please:" << std::endl;
+    std::cin >> user_name;
+
+    std::cout << "Enter your guess:" << std::endl;
     do {
-        ++attempt_counter;
+        ++attempts_count;
 
-		cin >> current_value;
+		std::cin >> current_value;
 
 		if (current_value < random_value) {
-			cout << "X > "s << current_value << endl;
+			std::cout << "greater than " << current_value << std::endl;
 		}
 		else if (current_value > random_value) {
-			cout << "X < "s << current_value << endl;
+			std::cout << "less than " << current_value << std::endl;
 		}
 		else {
-			cout << "you win! Attempts = "s << attempt_counter << endl;
+			std::cout << "you win! Attempts = " << attempts_count << std::endl << std::endl;
 			break;
 		}
         
 	} while(true);
+
+    WriteFile(user_name, attempts_count);
+    ReadFile();
+
+
 
 	return 0;
 }

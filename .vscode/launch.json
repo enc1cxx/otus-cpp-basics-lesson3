@@ -9,7 +9,10 @@
             "type": "cppvsdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/Debug/guess_the_number.exe",
-            "args": [],
+            "args": [
+                "-max",
+                "10",
+            ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
