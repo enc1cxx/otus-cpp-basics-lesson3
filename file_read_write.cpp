@@ -62,8 +62,11 @@ void WriteFile(std::string user_name, int attempts_count){
 		}
 		best_results[username] = high_score;
 	}
-	//file.close();
-	best_results[user_name] = attempts_count;
+	
+	if(best_results.at(user_name) > attempts_count){
+		best_results[user_name] = attempts_count;
+	}
+	
 
 	std::ofstream file_rewrite{high_scores_filename, std::ios_base::out};
 	for(const auto& element : best_results){
