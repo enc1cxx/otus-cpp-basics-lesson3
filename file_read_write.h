@@ -2,4 +2,4 @@
 
 void ReadFile();
 
-void WriteFile(std::string user_name, int attempts_count);
+void WriteFile(std::string input_user_name, int attempts_count);

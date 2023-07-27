@@ -35,7 +35,7 @@ void ReadFile(){
 }
 
 
-void WriteFile(std::string user_name, int attempts_count){
+void WriteFile(std::string input_user_name, int attempts_count){
 	// We should open the output file in the append mode - we don't want
 	// to erase previous results.
 	std::ifstream file{high_scores_filename, std::ios_base::app};
@@ -62,9 +62,9 @@ void WriteFile(std::string user_name, int attempts_count){
 		}
 		best_results[username] = high_score;
 	}
-	
-	if(best_results.at(user_name) > attempts_count){
-		best_results[user_name] = attempts_count;
+
+	if((best_results.find(input_user_name) == best_results.end()) || (best_results[input_user_name] > attempts_count)) {
+		best_results[input_user_name] = attempts_count;
 	}
 	
 
