@@ -11,7 +11,7 @@ add_executable(guess_the_number
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
     CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(<target_name> PRIVATE 
+    target_compile_options(guess_the_number PRIVATE 
         -g
         -Wall
         -Wextra
@@ -19,7 +19,7 @@ if (CMAKE_CXX_COMPILER_ID MATCHES "Clang" OR
         -pedantic
     )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(<target_name> PRIVATE
+    target_compile_options(guess_the_number PRIVATE
         /EHsc
         /W4
         /WX
