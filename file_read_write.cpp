@@ -4,6 +4,8 @@
 
 #include "file_read_write.h"
 
+namespace file_read_write{
+
 const std::string high_scores_filename = "high_scores.txt";
 
 void ReadFile(){
@@ -28,7 +30,6 @@ void ReadFile(){
 		if (in_file.fail()) {
 			break;
 		}
-
 		// Print the information to the screen
 		std::cout << username << '\t' << high_score << std::endl;
 	}
@@ -77,3 +78,5 @@ void WriteFile(const std::string& input_user_name, int attempts_count){
 	}
 
 } // end of score here just to mark end of the logic block of code
+
+} // end file_read_write

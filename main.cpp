@@ -6,19 +6,18 @@
 #include "file_read_write.h"
 
 
-int current_value = 0;
-int max_value = 100;
-std::string user_name = "";
-int attempts_count = 0;
-bool arg_level = false;
-bool arg_max = false;
-
-
 int main(int argc, char *argv[]) {
+
+    int current_value = 0;
+    int max_value = 100;
+    std::string user_name = "";
+    int attempts_count = 0;
+    bool arg_level = false;
+    bool arg_max = false;
 
     for (int i = 0; i < argc; ++i) {
         if(std::string(argv[i]) == "-table") {
-            ReadFile();
+            file_read_write::ReadFile();
             return 0;
         }
         if(std::string(argv[i]) == "-max") {
@@ -49,11 +48,6 @@ int main(int argc, char *argv[]) {
 
     const int random_value = distrib(gen);
 
-
-    //std::cout << "max_value = " << max_value << "random_value = " << random_value << std::endl;
-
-
-
     std::cout << "Hi! Enter your name, please:" << std::endl;
     std::cin >> user_name;
 
@@ -76,8 +70,8 @@ int main(int argc, char *argv[]) {
         
 	} while(true);
 
-    WriteFile(user_name, attempts_count);
-    ReadFile();
+    file_read_write::WriteFile(user_name, attempts_count);
+    file_read_write::ReadFile();
 
 
 
