@@ -35,7 +35,7 @@ void ReadFile(){
 }
 
 
-void WriteFile(std::string input_user_name, int attempts_count){
+void WriteFile(const std::string& input_user_name, int attempts_count){
 	// We should open the output file in the append mode - we don't want
 	// to erase previous results.
 	std::ifstream file{high_scores_filename, std::ios_base::app};
